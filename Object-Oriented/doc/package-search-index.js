@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.ibm.bank"},{"l":"com.ibm.emp"},{"l":"com.ibm.lib"},{"l":"com.ibm.shop"},{"l":"com.ibm.stock"}];updateSearchResults();
