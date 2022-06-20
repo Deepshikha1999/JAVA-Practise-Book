@@ -23,16 +23,24 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class SegregatePLMClassicAndCore {
 	
+<<<<<<< HEAD
 	String wsurl=" https://rsb.internal.ericsson.com/REST/G3/CICD/Product/XXL/";
 	
 	String folderName="May17";
 	String fileName="May17";
+=======
+	String wsurl=" https://rsb.internal.ericsson.com/REST/G3/CICD/Product/xs/";
+	
+	String folderName="Feb09";
+	String fileName="Feb09";
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 	String fileSep = File.separator;
 	String commacsvSeparator = ",";
 	
 	String Username = "V1FDILP";
 	String Password = "uIO8ZNnH1y4qSK5MxNZLIMxa";
 	
+<<<<<<< HEAD
 	String rootPath = "C:\\ericsson\\commercialstructures\\";
 	//String rootPath = "mnt/sdb/plm/dil/dilsec01";
 	String path=rootPath+fileSep+"Segregate"+fileSep+folderName+fileSep+fileName+".csv";
@@ -44,6 +52,19 @@ public class SegregatePLMClassicAndCore {
 	public static void main(String[] args) throws Exception {
 		SegregatePLMClassicAndCore segregatePLMClassicAndCore=new SegregatePLMClassicAndCore();
 		PrintStream o = new PrintStream(new File(segregatePLMClassicAndCore.logFile));
+=======
+	//String rootPath = "C:\\ericsson\\commercialstructures\\";
+	String rootPath = "mnt/sdb/plm/dil/dilsec01";
+	//String path=rootPath+fileSep+"Segregate"+fileSep+folderName+fileSep+fileName+".csv";
+	//String outputpath=rootPath+fileSep+"Segregate"+fileSep+folderName+fileSep+fileName+"outputFile.csv";
+	
+	String path=rootPath+fileSep+"dm"+fileSep+"inputfiles"+fileSep+folderName+fileSep+"P_C_ProductExtract"+".csv";
+	String outputpath=rootPath+fileSep+"dm"+fileSep+"outputfiles"+fileSep+folderName+fileSep+fileName+"outputFile.csv";
+	
+	public static void main(String[] args) throws Exception {
+		SegregatePLMClassicAndCore segregatePLMClassicAndCore=new SegregatePLMClassicAndCore();
+		PrintStream o = new PrintStream(new File("extract.log"));
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 		   // Assign o to output stream
 		 System.setOut(o);
 		segregatePLMClassicAndCore.ExtractCSProduct();
@@ -60,11 +81,19 @@ public class SegregatePLMClassicAndCore {
 		for(String product:productList)
 		{
 			String data[]=product.split(",");
+<<<<<<< HEAD
 			System.out.println(i+" "+data[0]+" "+data[1]);
 			if(data[1].trim().equals(""))
 				data[1]="HighestRState";
 			String sourcetype=webserviceUrl(data[0].trim()/*,data[data.length-1].trim()*/);
 			outputProductList.add(data[0].trim()+commacsvSeparator/*+data[data.length-1].trim()*/+commacsvSeparator+sourcetype);
+=======
+			System.out.println(i+" "+data[0]+" "+data[data.length-1]);
+			//if(data[1].trim().equals("-"))
+				//data[1]="HighestRState";
+			String sourcetype=webserviceUrl(data[0].trim(),data[data.length-1].trim());
+			outputProductList.add(data[0].trim()+commacsvSeparator+data[data.length-1].trim()+commacsvSeparator+sourcetype);
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 			i++;
 		}
 		
@@ -92,7 +121,11 @@ public class SegregatePLMClassicAndCore {
 		return csvproductNumberList;
 	}
 	
+<<<<<<< HEAD
 	public String webserviceUrl(String productNumber/*,String productRevision*/) throws Exception 
+=======
+	public String webserviceUrl(String productNumber,String productRevision) throws Exception 
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 	{
 		String value = "";
 		try {
@@ -105,12 +138,20 @@ public class SegregatePLMClassicAndCore {
 		    
 		    try {
 		    	productNumber_InURL = URLEncoder.encode(productNumber,"UTF-8").replace("+", "%20");
+<<<<<<< HEAD
 		    	//productRevision_InURL = URLEncoder.encode(productRevision,"UTF-8").replace("+", "%20");
+=======
+		    	productRevision_InURL = URLEncoder.encode(productRevision,"UTF-8").replace("+", "%20");
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 		    }catch(UnsupportedEncodingException e)
 		    {
 		    	e.printStackTrace();
 		    }
+<<<<<<< HEAD
 		    String webserviceurl=wsurl+productNumber_InURL/*+"/"+productRevision_InURL*/+"?CoreData&LifeCycleData";
+=======
+		    String webserviceurl=wsurl+productNumber_InURL+"/"+productRevision_InURL+"?CoreData&LifeCycleData";
+>>>>>>> c83bce004a7a09825293d9cb42e5766c757b9d75
 		    System.out.println(webserviceurl);
 		    URL myurl = new URL(webserviceurl);
 		    String reqMethod= "GET";
