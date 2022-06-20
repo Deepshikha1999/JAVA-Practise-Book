@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="str" class="java.lang.String">
+<constructor-arg value="Aloha Spring"/>
+</bean>
+
+<!--<bean id="hi" class="com.ibm.example1.Hello"> parametrised constructor using the vale of string class of id str
+<constructor-arg ref="str"/>
+</bean>-->
+
+<!-- passing value of str as message for setter method with default constructor -->
+<bean id="hi" class="com.ibm.example1.Hello">
+<property name="message" ref="str"></property>
+</bean>
+</beans>

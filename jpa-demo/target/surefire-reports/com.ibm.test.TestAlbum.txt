@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: com.ibm.test.TestAlbum
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.597 s <<< FAILURE! - in com.ibm.test.TestAlbum
+testSave  Time elapsed: 0.148 s  <<< ERROR!
+javax.persistence.RollbackException: Error while committing the transaction
+	at com.ibm.test.TestAlbum.testSave(TestAlbum.java:26)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ibm.test.TestAlbum.testSave(TestAlbum.java:26)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at com.ibm.test.TestAlbum.testSave(TestAlbum.java:26)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '111' for key 'albums.PRIMARY'
+	at com.ibm.test.TestAlbum.testSave(TestAlbum.java:26)
+
